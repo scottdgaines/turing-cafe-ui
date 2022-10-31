@@ -15,7 +15,7 @@ componentDidMount = async () => {
     const response = await fetch('http://localhost:3001/api/v1/reservations');
     const reservations = await response.json();
     
-    this.setState({ allReservations: [...reservations] })
+    this.setState({ allReservations: reservations })
   }
 
   addReservation = (newReservation) => {
