@@ -9,7 +9,7 @@ function Card({ name, date, time, number }) {
         <p>{time}</p>
         <p>Number of guests: {number}</p>
     </div>
-  )
-}
+  );
+};
 
 export default Card

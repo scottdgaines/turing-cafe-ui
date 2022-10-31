@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Form.css'
 
 class Form extends Component {
     constructor() {
@@ -11,21 +10,21 @@ class Form extends Component {
             time: '',
             number: ''
         }
-    }
+    };
 
     handleChange(event ) {
-        this.setState({ [event.target.name]: event.target.value })
-    }
+        this.setState({ [event.target.name]: event.target.value });
+    };
 
     handleClick(event) {
-        event.preventDefault()
+        event.preventDefault();
 
-        this.props.addReservation(this.state)
-    }
+        this.props.addReservation(this.state);
+    };
 
     render() {
         return (
-            <form className='resy-form'>
+            <form >
                 <input 
                     name='name' 
                     type="text" 
@@ -59,8 +58,8 @@ class Form extends Component {
                     onClick={event => this.handleClick(event)}
                 >Make Reservation</button>
             </form>
-        )
-    }
-}
+        );
+    };
+};
 
 export default Form

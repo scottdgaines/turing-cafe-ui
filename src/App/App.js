@@ -8,19 +8,19 @@ class App extends Component {
     super();
     this.state = {
       allReservations: []
-    }
-  }
+    };
+  };
   
 componentDidMount = async () => {
     const response = await fetch('http://localhost:3001/api/v1/reservations');
     const reservations = await response.json();
     
-    this.setState({ allReservations: reservations })
-  }
+    this.setState({ allReservations: reservations });
+  };
 
   addReservation = (newReservation) => {
-    this.setState({ allReservations: [...this.state.allReservations, newReservation] })
-  }
+    this.setState({ allReservations: [...this.state.allReservations, newReservation] });
+  };
 
   render() {
     const reservationCard = this.state.allReservations.map(res => {
@@ -33,8 +33,8 @@ componentDidMount = async () => {
           number={res.number}
           key={res.id}
         />
-      )
-    })
+      );
+    });
 
     return (
       <div className="App">
@@ -44,8 +44,8 @@ componentDidMount = async () => {
           {reservationCard}
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default App;
