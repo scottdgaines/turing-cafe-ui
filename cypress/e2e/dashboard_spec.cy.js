@@ -22,6 +22,18 @@ describe('Dashboard', () => {
 
   it('Should display a new reservation card', () => {
     cy.get('[name="name"]').type('Scott')
+    cy.get('[name="name"]').invoke('val').should('equal', 'Scott')
+    cy.get('[name="date"]').type('11/11')
+    cy.get('[name="date"]').invoke('val').should('equal', '11/11')
+    cy.get('[name="time"]').type('3:00')
+    cy.get('[name="time"]').invoke('val').should('equal', '3:00')
+    cy.get('[name="number"]').type(2)
+    cy.get('[name="number"]').invoke('val').should('equal', '2')
+  })
+
+  it('Should be able to add a new reservation', () => {
+    cy.get('[name="name"]').type('Scott')
+    cy.get('[name="name"]').invoke('val').should('equal', 'Scott')
     cy.get('[name="date"]').type('11/11')
     cy.get('[name="time"]').type('3:00')
     cy.get('[name="number"]').type(2)
