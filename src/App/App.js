@@ -10,16 +10,16 @@ class App extends Component {
       allReservations: []
     }
   }
-
-  componentDidMount = async () => {
+  
+componentDidMount = async () => {
     const response = await fetch('http://localhost:3001/api/v1/reservations');
     const reservations = await response.json();
     
-    this.updateState(reservations)
+    this.setState({ allReservations: [...reservations] })
   }
 
-  updateState(reservations) {
-    this.setState({ allReservations: reservations })
+  addReservation = (newReservation) => {
+    this.setState({ allReservations: [...this.state.allReservations, newReservation] })
   }
 
   render() {
@@ -39,9 +39,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'>
-          <Form />
-        </div>
+        <Form addReservation={this.addReservation} />
         <div className='resy-container'>
           {reservationCard}
         </div>
